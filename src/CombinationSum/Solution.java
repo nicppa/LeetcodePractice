@@ -16,10 +16,10 @@ public class Solution {
             for(int i = pos; i < candidates.length && target >= candidates[i];i++){
                 cur.add(candidates[i]);
                 getResult(result,cur,candidates,target-candidates[i],i);
-                cur.remove(candidates[i]);
+                cur.remove(cur.size() - 1);
             }
         }else if(target == 0){
-            result.add(cur);
+            result.add(new ArrayList<Integer>(cur));
         }
     }
 }
