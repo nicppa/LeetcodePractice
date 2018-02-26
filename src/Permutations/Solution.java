@@ -13,17 +13,11 @@ public class Solution {
     public void backtrack(List<List<Integer>> result,List<Integer>cur,int[] nums,int pos){
         if(nums.length == cur.size()){
             result.add(new ArrayList<>(cur));
-        }else{
-            for(int i = pos; i < nums.length;i++){
-                if(cur.contains(nums[pos])){
-                    continue;
-                }
-                cur.add(nums[pos]);
-                backtrack(result,cur,nums,pos+1);
-                cur.remove(cur.size()-1);
-            }
         }
-
-
+        for(int i = 0; i < cur.size();i++){
+            List<Integer> newCur = new ArrayList<>();
+            newCur.add(i,nums[pos]);
+            backtrack(result,newCur,nums,pos+1);
+        }
     }
 }
